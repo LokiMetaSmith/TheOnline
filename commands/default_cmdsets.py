@@ -19,6 +19,8 @@ from commands import movecommands
 from evennia.contrib.ingame_python.commands import CmdCallback
 from commands import containercommands
 from commands import command
+from commands import emotes
+from world import gendersub
 
 
 class CharacterCmdSet(default_cmds.CharacterCmdSet):
@@ -50,6 +52,18 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         self.add(containercommands.CmdCloseObject())
         self.add(containercommands.CmdPutObject())
         self.add(containercommands.CmdGetObject())
+        self.add(emotes.CmdApplaud())
+        self.add(emotes.CmdBat())
+        self.add(emotes.CmdBeam())
+        self.add(emotes.CmdBelch())
+        self.add(emotes.CmdBlanch())
+        self.add(emotes.CmdBlink())
+        self.add(emotes.CmdBlow())
+        self.add(emotes.CmdBow())
+        self.add(emotes.CmdBurp())
+        self.add(emotes.CmdCackle())
+        self.add(emotes.CmdCaress())
+        self.add(gendersub.SetGender())
         self.add(command.CmdOpen())
         self.add(command.CmdDrop())
         self.add(CmdCallback())
