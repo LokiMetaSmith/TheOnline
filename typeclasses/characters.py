@@ -7,7 +7,7 @@ is setup to be the "default" character type created by the default
 creation commands.
 
 """
-from evennia.contrib.ingame_python.typeclasses import EventCharacter
+from evennia.objects.objects import DefaultCharacter
 from world.gendersub import GenderCharacter
 
 

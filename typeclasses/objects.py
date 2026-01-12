@@ -10,7 +10,7 @@ the other types, you can do so by adding this as a multiple
 inheritance.
 
 """
-from evennia.contrib.ingame_python.typeclasses import EventObject
+from evennia.objects.objects import DefaultObject
 from collections import defaultdict
 from django.utils.translation import gettext as _
 from evennia.utils.utils import (
@@ -23,7 +23,7 @@ from evennia.utils.utils import (
 )
 
 
-class Object(EventObject):
+class Object(DefaultObject):
     """
     This is the root typeclass object, implementing an in-game Evennia
     game object, such as having a location, being able to be
@@ -171,7 +171,7 @@ class Object(EventObject):
 
     pass
 
-class Container(EventObject):
+class Container(Object):
     def at_object_creation(self):
         self.aliases.add({self.name})
         self.db.container = True
