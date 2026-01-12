@@ -1,8 +1,8 @@
 import re
 from evennia.utils import logger
-from evennia import Command
+from evennia.commands.default.muxcommand import MuxCommand as Command
 from evennia.utils.utils import inherits_from
-from evennia.contrib.ingame_python.typeclasses import EventCharacter
+from evennia.objects.objects import DefaultCharacter
 
 
 # gender maps
@@ -50,7 +50,7 @@ class SetGender(Command):
             except IndexError:
                 caller.msg(f"|yWho are you trying to change the gender of?")
                 return
-            if not inherits_from(target, EventCharacter):
+            if not inherits_from(target, DefaultCharacter):
                 caller.msg(f"|yYou cannot assign a gender to that!")
                 return
             target.db.gender = gender
@@ -58,7 +58,7 @@ class SetGender(Command):
             target.msg(f"%s has set your gender to %s." % (caller.key, gender))
 
 
-class GenderCharacter(EventCharacter):
+class GenderCharacter(DefaultCharacter):
     """
     - `|s`, `|S`: Subjective form: he, she, it, He, She, It, They
     - `|o`, `|O`: Objective form: him, her, it, Him, Her, It, Them

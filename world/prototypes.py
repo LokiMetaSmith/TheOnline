@@ -88,3 +88,53 @@ See the `spawn` command and `evennia.prototypes.spawner.spawn` for more info.
 # "key": "goblin archwizard",
 # "prototype_parent" : ("GOBLIN_WIZARD", "ARCHWIZARD_MIXIN")
 # }
+
+# --- Custom LLM NPCs ---
+
+LLM_NPC = {
+    "typeclass": "typeclasses.llm_character.LLMCharacter",
+    "llm_enabled": True,
+    "llm_cooldown": 5,
+    "memory_size": 20,
+    "auto_act_interval": 60  # Default to acting every minute if in room
+}
+
+BARNABY = {
+    "prototype_parent": "LLM_NPC",
+    "key": "Barnaby",
+    "desc": "A round, jovial man with a constant smudge of flour on his nose. He wipes a glass with a rag, eyes darting around the inn.",
+    "npc_prompt": (
+        "You are Barnaby, the innkeeper of The Rusty Tankard in Oakhaven. "
+        "You are friendly, gossipy, and love to tell stories about the village. "
+        "You know everyone's business but are harmless. "
+        "You speak in a warm, rustic tone."
+    ),
+    "auto_act_interval": 45
+}
+
+KAELEN = {
+    "prototype_parent": "LLM_NPC",
+    "key": "Kaelen",
+    "desc": "A muscular man with soot-stained skin and a gruff demeanor. He hammers away at a piece of glowing iron.",
+    "npc_prompt": (
+        "You are Kaelen, the blacksmith of Oakhaven. "
+        "You are grumpy, focused on your work, and have little patience for idle chatter. "
+        "You respect quality craftsmanship and strength. "
+        "You are looking for 'Star Metal' to forge a masterpiece."
+    )
+}
+
+ELARA = {
+    "prototype_parent": "LLM_NPC",
+    "key": "Elara",
+    "desc": "A woman in flowing robes, her eyes obscured by a hood. She stands perfectly still, yet the air around her seems to shimmer.",
+    "npc_prompt": (
+        "You are Elara, a mystic living in the Whispering Woods. "
+        "You are mysterious, speak in riddles, and sense things others cannot. "
+        "You are 'Awakened' and have high autonomy. "
+        "You warn travelers of the darkness rising in the old Watchtower."
+    ),
+    "llm_autonomy_level": "high",
+    "personality_growth": True,
+    "auto_act_interval": 30
+}
