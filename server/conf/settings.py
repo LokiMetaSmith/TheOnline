@@ -25,6 +25,7 @@ put secret game- or server-specific settings in secret_settings.py.
 """
 
 # Use the defaults from Evennia unless explicitly overridden
+import os
 from evennia.settings_default import *
 
 ######################################################################
@@ -34,6 +35,9 @@ from evennia.settings_default import *
 # This is the name of your game. Make it catchy!
 SERVERNAME = "mygame"
 
+# OpenAI API Key
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", None)
+OPENAI_MODEL = "gpt-4o-mini"
 
 ######################################################################
 # Settings given in secret_settings.py override those in this file.
