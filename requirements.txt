@@ -1,3 +1,4 @@
 evennia
 setuptools
 openai
+pytest
